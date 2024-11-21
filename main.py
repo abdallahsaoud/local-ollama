@@ -21,7 +21,7 @@ def local_rag_pipeline(user_query, bucket_name, file_key):
 # Test
 if __name__ == "__main__":
     bucket_name = "local-rag"  # Nom de ton bucket S3
-    file_key = "origine-JO.txt"      # Fichier texte dans ton bucket
+    file_key = "pdf-exemple.pdf"      # Fichier texte dans ton bucket
     user_query = "Quel est l'origine des JO ?"
 
     response = local_rag_pipeline(user_query, bucket_name, file_key)
