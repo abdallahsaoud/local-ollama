@@ -38,10 +38,10 @@ pip install boto3
 ```
 4. Configurez vos clés AWS
 Exportez vos Access Key ID et Secret Access Key comme variables d'environnement dans un fichier .env :
-
- <!-- AWS_ACCESS_KEY_ID="AKIAYUQGSUPDSMAM4N5D"
- AWS_SECRET_ACCESS_KEY="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" -->
-
+```bash
+ AWS_ACCESS_KEY_ID="AKIAYUQGSUPDSMAM4N5D"
+ AWS_SECRET_ACCESS_KEY="v8DEKVI9AbhvBRG9zcKeVTRQWRa01kWNBeb7YEa5m"
+```
 
 5. Installez Ollama
 
