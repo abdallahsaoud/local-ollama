@@ -1,9 +1,20 @@
-import subprocess
+import requests
+import json
 
-def query_ollama(prompt, model="llama3.2"):
-    process = subprocess.run(
-        ['ollama', 'run', model, prompt],
-        capture_output=True,
-        text=True
-    )
-    return process.stdout.strip()
+def query_ollama(prompt, temperature, model="llama3.2"):
+    url = "http://localhost:11434/api/generate"
+    headers = {"Content-Type": "application/json"}
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "temperature": temperature,
+        "stream": False  # Peut être activé pour des réponses en streaming
+    }
+
+    try:
+        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        response.raise_for_status()  # Génère une exception si la réponse HTTP est un échec
+        result = response.json()
+        return result.get("response", "Aucune réponse reçue du modèle.")
+    except requests.exceptions.RequestException as e:
+        return f"Erreur lors de l'appel à Ollama : {e}"
